@@ -49,8 +49,8 @@ int main(int argc, char *argv[])
         // padre
         close(fd[0]); // chiuso lettura
 
-        Libro libro;  // variabile struct
-        
+        Libro libro; // variabile struct
+
         for (int i = 0; i < 2; i++)
         {
             printf("Inserire titolo del libro \n");

@@ -5,7 +5,7 @@
 #define BUFFER_DIM 1024
 #define BUFFER_SIZE 64
 
-typedef struct 
+typedef struct
 {
     unsigned char buffer[BUFFER_DIM];
     int n;
@@ -66,30 +66,30 @@ void *Scrivi(void *arg)
     }
 }
 
-int main(int argc, char* argv[]) 
-{ 
+int main(int argc, char *argv[])
+{
     FILE *origine, *destinazione;
 
-    if (argc != 3) 
-    { 
+    if (argc != 3)
+    {
         printf("Non hai inserito tutti i file.");
-        return 0; 
+        return 0;
     }
 
     origine = fopen(argv[1], "rb");
 
-    if (origine == NULL) 
-    { 
+    if (origine == NULL)
+    {
         printf("Il file di origine non si è aperto correttamente.");
-        return 0; 
-    } 
+        return 0;
+    }
 
-    destinazione = fopen(argv[2], "wb"); 
+    destinazione = fopen(argv[2], "wb");
 
-    if (destinazione == NULL) 
-    { 
+    if (destinazione == NULL)
+    {
         printf("Il file di destinazione non si è aperto correttamente.");
-        return 0; 
+        return 0;
     }
 
     pthread_t lettura, scrittura;

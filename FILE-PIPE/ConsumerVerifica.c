@@ -10,19 +10,19 @@
 
 int main(int argc, char *argv[])
 {
-    if(argc != 2)
+    if (argc != 2)
     {
         printf("Numero argomenti sbagliato");
         exit(-1);
     }
-    
+
     int fd;
-    int somma=0;
+    int somma = 0;
     char buffer[BUFFER_SIZE];
     fd = open("fifo", O_RDONLY);
 
     FILE *destinazione = fopen(argv[1], "wr");
-    if (!destinazione) 
+    if (!destinazione)
     {
         printf("Errore apertura file destinazione");
         exit(-1);
@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 
     int n;
 
-    while ((n = read(fd, buffer, sizeof(buffer))) > 0) 
+    while ((n = read(fd, buffer, sizeof(buffer))) > 0)
     {
         fwrite(buffer, 1, n, destinazione);
     }

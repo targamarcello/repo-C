@@ -23,13 +23,13 @@ int main()
     p = fork();
     if (p == 0)
     {
-        execl("./processo_P2", "processo_P2", studente.nome, studente.cognome,NULL);
+        execl("./processo_P2", "processo_P2", studente.nome, studente.cognome, NULL);
         perror("Errore nell'esecuzione di execl");
         exit(EXIT_FAILURE);
     }
     else
     {
-        //Processo P2 termina le sue funzioni
+        // Processo P2 termina le sue funzioni
         wait(NULL);
         printf("Processo P2 terminato\n");
     }

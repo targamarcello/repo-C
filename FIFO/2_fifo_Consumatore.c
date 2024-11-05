@@ -8,19 +8,19 @@
 int main()
 {
     int nums[numeri];
-    int fd= open("sum", 0_RONLY);
-    if(fd==-1)
+    int fd = open("sum", O_RONLY);
+    if (fd == -1)
     {
         printf("errore creazione FIFO\n");
         exit(-1);
     }
     printf("Il Consumatore sta leggendo i numeri dalla FIFO\n");
-    read(fd, nums, sizeof(nums));ù
-    int sum=0;
-    for(int i=0; i<numeri; i++)
+    read(fd, nums, sizeof(nums));
+    int sum = 0;
+    for (int i = 0; i < numeri; i++)
     {
-        sum +=nums[i];
-        printf("Il numero letto è : ",nums[i]);
+        sum += nums[i];
+        printf("Il numero letto è : ", nums[i]);
     }
     printf("La somma dei numeri è : %d", sum);
     close(fd);

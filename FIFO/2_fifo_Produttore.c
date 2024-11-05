@@ -10,13 +10,13 @@ int main()
 {
     int nums[numeri];
     printf("FILE PRODUTTORE : %d numeri casuali randomici\n", numeri);
-    for(int i=0; i<numeri; i++)
+    for (int i = 0; i < numeri; i++)
     {
-        nums[i]= rand() % (numeriRandom+1);
-        printf("é stato generato un numero nell'array\n");   
+        nums[i] = rand() % (numeriRandom + 1);
+        printf("é stato generato un numero nell'array\n");
     }
-    int fd= open("sum",0_WONLY);
-    if( fd==-1)
+    int fd = open("sum", O_WONLY);
+    if (fd == -1)
     {
         printf("errore apertura FIFO\n");
         exit(-1);
