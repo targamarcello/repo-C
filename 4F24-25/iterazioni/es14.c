@@ -1,3 +1,7 @@
+/*
+Dati due numeri interi positivi N1 ed N2 calcolare, mediante la somma
+ripetuta, il prodotto dei due numeri e visualizzarli.
+*/
 #include <stdio.h>
 
 int main(int argc, char *argv[])

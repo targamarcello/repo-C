@@ -2,7 +2,7 @@
 Le consumazioni si dividono in bevande e ristorazione. La cassiera per ogni consumazione deve inserire la tipologia di consumazione e il suo importo.
 
 Quando la cassiera inserisce la stringa “esci” il software deve mostrare a video le seguenti informazioni:
-1.	La media dell’incasso delle bevande 
+1.	La media dell’incasso delle bevande
 2.	La media dell’incasso della ristorazione
 3.	Deve indicare se sono state vendute più bevande o più ristorazioni*/
 
@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
         do
         {
             printf("Inserisci tipo: \n");
-            scanf("%s",&tipo);
+            scanf("%s", &tipo);
         } while (strcmp("esci", tipo) != 0 && strcmp(tipo, "bevande") != 0 && strcmp(tipo, "ristorazione") != 0);
 
         do
@@ -57,4 +57,4 @@ int main(int argc, char *argv[])
     printf("La media delle bevande è: %f\n", mediaB);
     printf("La media delle ristorazioni è: %f\n", mediaR);
     return 0;
-}   
+}

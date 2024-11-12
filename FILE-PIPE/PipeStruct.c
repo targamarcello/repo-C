@@ -31,7 +31,7 @@ int main()
         read(fd[0], &l1, sizeof(Libro));
         read(fd[0], &l2, sizeof(Libro));
         printf("LIBRO 1:\n");
-        printf("Titolo: %s", li.titolo);
+        printf("Titolo: %s", l1.titolo);
         printf("Autore: %s", l1.autore);
         printf("Prezzo: %d", l1.prezzo);
         printf("LIBRO 2:\n");

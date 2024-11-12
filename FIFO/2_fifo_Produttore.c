@@ -15,7 +15,7 @@ int main()
         nums[i] = rand() % (numeriRandom + 1);
         printf("é stato generato un numero nell'array\n");
     }
-    int fd = open("sum", O_WONLY);
+    int fd = open("sum", O_WRONLY);
     if (fd == -1)
     {
         printf("errore apertura FIFO\n");

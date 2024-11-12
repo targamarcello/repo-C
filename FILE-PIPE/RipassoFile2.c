@@ -7,15 +7,15 @@
 int main(int argc, char *argv)
 {
     char stringa[100];
-    /*FILE *lettura;
-    lettura=fopen("file scrittura", "r");
-    fgets(stringa, 100, lettura);           ES FILE
+    FILE *lettura;
+    lettura = fopen("file scrittura", "r");
+    fgets(stringa, 100, lettura); // ES FILE
     printf("la stringa letta è: %s\n", stringa);
-    fclose(lettura);*/
+    fclose(lettura);
 
-    /*int fd=open("fifo1", O_RDONLY);
-    read(fd,&stringa, sizeof(stringa));         ES FIFO
+    int fd = open("fifo1", O_RDONLY);
+    read(fd, &stringa, sizeof(stringa)); // ES FIFO
     printf("la stringa è: %s\n", stringa);
-    close(fd);*/
+    close(fd);
     return 0;
 }

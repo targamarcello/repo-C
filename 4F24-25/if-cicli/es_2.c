@@ -8,20 +8,22 @@
 
 #include <stdio.h>
 
-int main(int argc, char *argv[]){
+int main(int argc, char *argv[])
+{
 
-    int num1,num2, prod, somma=0;
+    int num1, num2, prod, somma = 0;
 
-    do{
+    do
+    {
         printf("Inserisci num1\n");
         scanf("%d", &num1);
         printf("Inserisci num2\n");
         scanf("%d", &num2);
-        prod = num1*num2;
+        prod = num1 * num2;
         printf("Prodotto dei numeri è: %d\n", prodotto);
 
         somma = somma + prod;
-    }while(num1!=0 && num2!=0);
+    } while (num1 != 0 && num2 != 0);
 
     printf("Somma dei numeri: %d\n", somma);
 

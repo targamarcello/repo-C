@@ -8,7 +8,7 @@
 int main()
 {
     int nums[numeri];
-    int fd = open("sum", O_RONLY);
+    int fd = open("sum", O_RDONLY);
     if (fd == -1)
     {
         printf("errore creazione FIFO\n");
