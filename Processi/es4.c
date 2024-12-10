@@ -1,10 +1,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
-#include <sys/types.h>
 #include <sys/wait.h>
-#include <ctype.h>
-#include <string.h>
 
 int ricercaPos(int arrayNum[], int lunghezza, int num){
     for(int i=0; i<lunghezza; i++){
@@ -15,16 +12,12 @@ int ricercaPos(int arrayNum[], int lunghezza, int num){
     return -1;
 }
 
-
-
-
 int main(int argc, char *argv[]){
     int arrayNumeri[] = {1,2,3,4,5,6,7,8,9,0};
     int index = atoi(argv[1]);
-    int pos;
     int p = fork();
     if(p==0){
-        pos = ricercaPos(arrayNumeri, 10, index);
+        int pos = ricercaPos(arrayNumeri, 10, index);
         if(pos>-1){
             printf("Il numero %d è presente in posizione %d\n",index,pos);
         }else{
@@ -32,6 +25,7 @@ int main(int argc, char *argv[]){
             exit(1);
         }
     }
+    wait(&p);
     return 0;
 }
 /*Scriva un programma C che dato un array prestabilito, prenda in input da
