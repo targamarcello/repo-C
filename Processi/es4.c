@@ -6,7 +6,7 @@
 #include <ctype.h>
 #include <string.h>
 
-int ricerca(int arrayNum[], int lunghezza, int num){
+int ricercaPos(int arrayNum[], int lunghezza, int num){
     for(int i=0; i<lunghezza; i++){
         if(arrayNum[i]==num){
             return i;
@@ -24,7 +24,7 @@ int main(int argc, char *argv[]){
     int pos;
     int p = fork();
     if(p==0){
-        pos = ricerca(arrayNumeri, 10, index);
+        pos = ricercaPos(arrayNumeri, 10, index);
         if(pos>-1){
             printf("Il numero %d è presente in posizione %d\n",index,pos);
         }else{
