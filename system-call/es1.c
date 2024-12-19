@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <fcntl.h>
 #include <unistd.h>
 
@@ -12,11 +13,11 @@ int main(int argc, char *argv[])
     }
 
     int fd, charRead;
-    char buff;
+    char buff[8];
     fd = open(argv[1], O_RDONLY);
-    while (charRead = read(fd, &buff, sizeof(buff)) > 0)
+    while (charRead = read(fd, buff, sizeof(buff)) > 0)
     {
-        write(1, &buff, charRead);
+        write(1, strlen(buff), charRead);
     }
     close(fd);
     return 0;
