@@ -3,24 +3,32 @@
 #include <stdlib.h>
 #include <sys/wait.h>
 
-int ricercaPos(int arrayNum[], int lunghezza, int num){
-    for(int i=0; i<lunghezza; i++){
-        if(arrayNum[i]==num){
+int ricercaPos(int arrayNum[], int lunghezza, int num)
+{
+    for (int i = 0; i < lunghezza; i++)
+    {
+        if (arrayNum[i] == num)
+        {
             return i;
         }
     }
     return -1;
 }
 
-int main(int argc, char *argv[]){
-    int arrayNumeri[] = {1,2,3,4,5,6,7,8,9,0};
+int main(int argc, char *argv[])
+{
+    int arrayNumeri[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
     int index = atoi(argv[1]);
     int p = fork();
-    if(p==0){
+    if (p == 0)
+    {
         int pos = ricercaPos(arrayNumeri, 10, index);
-        if(pos>-1){
-            printf("Il numero %d è presente in posizione %d\n",index,pos);
-        }else{
+        if (pos > -1)
+        {
+            printf("Il numero %d è presente in posizione %d\n", index, pos);
+        }
+        else
+        {
             printf("Numero non trovato!!\n");
             exit(1);
         }
