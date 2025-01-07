@@ -4,6 +4,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 
+#define BUFFER 8
 int main(int argc, char *argv[])
 {
     if (argc != 2)
@@ -13,17 +14,12 @@ int main(int argc, char *argv[])
     }
 
     int fd, charRead;
-    char buff[8];
+    char buff[BUFFER];
     fd = open(argv[1], O_RDONLY);
-    while (charRead = read(fd, buff, sizeof(buff)) > 0)
+    while ((charRead = read(fd, buff, sizeof(buff))) > 0)
     {
-        write(1, strlen(buff), charRead);
+        write(1, buff, charRead);
     }
     close(fd);
     return 0;
 }
-/*Utilizzando le system call open, read, write, close leggere il file rfc1918.txt e stamparlo a video.
-Il programa deve essere cosi invocato:
-$./a.out rfc1918.txt
-
-Consiglio: leggere un carratere per volta */
