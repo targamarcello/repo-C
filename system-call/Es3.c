@@ -5,10 +5,14 @@
 #include <sys/types.h>
 #include <string.h>
 
-void sort(int count, char *strings[]) {
-    for (int i = 0; i < count - 1; i++) {
-        for (int j = 0; j < count - i - 1; j++) {
-            if (strcmp(strings[j], strings[j + 1]) > 0) {
+void sort(int count, char *strings[])
+{
+    for (int i = 0; i < count - 1; i++)
+    {
+        for (int j = 0; j < count - i - 1; j++)
+        {
+            if (strcmp(strings[j], strings[j + 1]) > 0)
+            {
                 // Scambia le stringhe
                 char *temp = strings[j];
                 strings[j] = strings[j + 1];
@@ -18,15 +22,18 @@ void sort(int count, char *strings[]) {
     }
 }
 
-int main(int argc, char *argv){
+int main(int argc, char *argv)
+{
 
-    if(argc!=2){
+    if (argc != 2)
+    {
         printf("ERRORE NEGLI ARGOMENTI!!!");
         exit(1);
     }
-    sort(argc,argv);
-    int fd = open(argv[1],O_WRONLY|O_CREATE|O_TRUNC,0644);
-    for(int i=2; i<argc; i++){
+    sort(argc, argv);
+    int fd = open(argv[1], O_WRONLY | O_CREAT | O_TRUNC, 0644);
+    for (int i = 2; i < argc; i++)
+    {
         write(fd, argv[i], strlen(argv[i]));
         write(1, argv[i], strlen(argv[i]));
         write(1, argv[i], strlen(argv[i]));
@@ -36,7 +43,6 @@ int main(int argc, char *argv){
 
     return 0;
 }
-
 
 /*Scrivere un programma in linguaggio C che legge da argv una serie di stringhe,
 le ordina usando un algoritmo di ordinamento a scelta e scrive il risultato

@@ -1,0 +1,1 @@
+Il carattere inserito l 5 volte nei file: file1.txt file2.txt file3.txt
