@@ -17,7 +17,7 @@ void calcola_media(int *vettore) {
     for (int i = 0; i < 3; i++) {
         somma += vettore[i];
     }
-    float media = somma / 3.0;
+    float media = somma / 3;
     printf("P5: La media delle componenti del vettore V[] = %.2f\n", media);
 }
 

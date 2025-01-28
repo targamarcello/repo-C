@@ -8,7 +8,7 @@
 int main(int argc, char *argv[])
 {
 
-    if (argc < 5)
+    if (argc < 3)
     {
         printf("ERRORE NELL'INSERIMENTO DEGLI ARGOMENTI!!!\n");
         exit(1);
