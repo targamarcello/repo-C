@@ -5,20 +5,27 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-void ordinamentos(int argc, char *argv[]) {
+void ordinamentos(int argc, char *argv[])
+{
   int i, j;
   char *temp;
-  for (i = 1; i < argc; i++) {
-    for (j = 3; j < (argc - i - 1); j++) {
-      if (strcmp("--asc", argv[2]) == 0) {
-        if (strcmp(argv[j], argv[j + 1])) {
+  for (i = 1; i < argc; i++)
+  {
+    for (j = 3; j < (argc - i - 1); j++)
+    {
+      if (strcmp("--asc", argv[2]) == 0)
+      {
+        if (strcmp(argv[j], argv[j + 1]))
+        {
           temp = argv[j];
           argv[j] = argv[j + 1];
           argv[j + 1] = temp;
         }
       }
-      if (strcmp("--desc", argv[2]) == 0) {
-        if (strcmp(argv[j], argv[j + 1])) {
+      if (strcmp("--desc", argv[2]) == 0)
+      {
+        if (strcmp(argv[j], argv[j + 1]))
+        {
           temp = argv[j];
           argv[j] = argv[j + 1];
           argv[j + 1] = temp;
@@ -28,22 +35,25 @@ void ordinamentos(int argc, char *argv[]) {
   }
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
 
   int fd;
-  if (argc < 4) {
+  if (argc < 4)
+  {
     printf("ERRORE INSERIENTO ARGOMENTI!!");
     exit(1);
   }
   ordinamentos(argc, argv);
   fd = open(argv[1], O_WRONLY | O_CREAT | O_TRUNC, 0644);
-  for (int i = 3; i < argc; i++) {
+  for (int i = 3; i < argc; i++)
+  {
     write(fd, argv[i], strlen(argv[i]));
     write(fd, "\n", strlen("\n"));
     write(1, argv[i], strlen(argv[i]));
     write(1, "\n", strlen("\n"));
   }
-  close(fd) ;
+  close(fd);
   return 0;
 }
 
