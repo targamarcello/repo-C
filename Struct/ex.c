@@ -2,7 +2,8 @@
 #include <string.h>
 
 // Definizione della struttura per rappresentare una persona
-typedef struct {
+typedef struct
+{
     char nome[50];
     char cognome[50];
     int eta;
@@ -16,16 +17,18 @@ typedef struct {
     printf("Età: %d\n",p.eta);
     printf("Altezza: %.2f\n",p.altezza);
 }*/
-void aggiornaEta(Persona *p, int eta2){
+void aggiornaEta(Persona *p, int eta2)
+{
     (*p).eta = eta2;
 }
 
-int main(){
-    Persona p1 = {"Luigi","Verdi",41,1.31};
-    //stampaDettagli(p1);
-    printf("Età prima: %d\n",p1.eta);
-    aggiornaEta(&p1,41);
-    printf("Età dopo: %d\n",p1.eta);
-    
+int main()
+{
+    Persona p1 = {"Luigi", "Verdi", 41, 1.31};
+    // stampaDettagli(p1);
+    printf("Età prima: %d\n", p1.eta);
+    aggiornaEta(&p1, 41);
+    printf("Età dopo: %d\n", p1.eta);
+
     return 0;
 }
