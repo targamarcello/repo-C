@@ -39,25 +39,24 @@ typedef struct
 void inserimento(Persona p[], int *n)
 {
     printf("Quante persone vuoi inserire? ");
-    scanf("%d\n", n);
-    getchar();
+    scanf("%d", n);
     for (int i = 0; i < *n; i++)
     {
-        printf("Persona %d:\n", i + 1);
-        printf("Nome: ");
-        scanf("%s\n", p[i].nome);
-        printf("Cognome: ");
-        scanf("%s\n", p[i].cognome);
-        printf("Età: ");
-        scanf("%d\n", &p[i].eta);
-        printf("Codice Fiscale: ");
-        scanf("%s\n", p[i].cf);
-        printf("Reddito annuo: ");
-        scanf("%f\n", p[i].redditoAnnuo);
-        printf("Anno nascita: ");
-        scanf("%d\n", &p[i].annoNascita);
-        printf("Città residenza: ");
-        scanf("%s\n", p[i].citta);
+        printf("\n Persona %d:\n", i + 1);
+        printf("\n Nome: ");
+        scanf("%s", p[i].nome);
+        printf("\n Cognome: ");
+        scanf("%s", p[i].cognome);
+        printf("\n Età: ");
+        scanf("%d", &p[i].eta);
+        printf("\n Codice Fiscale: ");
+        scanf("%s", p[i].cf);
+        printf("\n Reddito annuo: ");
+        scanf("%f", &p[i].redditoAnnuo);
+        printf("\n Anno nascita: ");
+        scanf("%d", &p[i].annoNascita);
+        printf("\n Città residenza: ");
+        scanf("%s", p[i].citta);
     }
 }
 
@@ -200,7 +199,7 @@ void visualizzaNascita(Persona p[], int n)
         printf("Nessuna persona trovata con quell'anno di nascita!!\n");
 }
 
-void raggruppamentoCitta(); // non ho idee
+//void raggruppamentoCitta(); // non ho idee
 
 /**
  * @brief Funzione principale del programma. Gestisce il menu e le operazioni.
@@ -238,7 +237,7 @@ int main()
             break;
         case 3:
         printf("Inserisci codice fiscale da ricercare: ");
-        scanf("%s",&cfCercato);
+        scanf("%s",cfCercato);
         ricerca(persone,n,cfCercato);
             break;
         case 4:
@@ -251,7 +250,7 @@ int main()
         visualizzaNascita(persone,n);
             break;
         case 7:
-        raggruppamentoCitta(persone,n);
+        //raggruppamentoCitta(persone,n);
             break;
         case 0:
             printf("Uscita dal programma...\n");
