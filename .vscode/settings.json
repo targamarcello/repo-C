@@ -4,6 +4,8 @@
         "unistd.h": "c",
         "stdio.h": "c",
         "wait.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "errno.h": "c",
+        "ctype.h": "c"
     }
 }
