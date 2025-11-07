@@ -35,11 +35,10 @@ int main()
     {
         printf("\n\nServer in ascolto...");
         fflush(stdout);
-        //il server accetta la connessione pag. 165
         soa=accept(socketfd,(struct sockaddr*)&addr_remoto,&fromlen);
         //legge dal client
         read(soa,str,sizeof(str));
-        printf("Stringa ricevuta: %s\n",str);
+        printf("\nStringa ricevuta: %s\n",str);
         close(soa);
     }
    return 0;   
