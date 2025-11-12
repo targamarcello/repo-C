@@ -10,7 +10,8 @@
 #define DIM 50
 #define SERVERPORT 1313
 
-void OrdinamentoAlfabetico(char *stringa, char *risultato) {
+void OrdinamentoAlfabetico(char *stringa, char *risultato)
+{
   int lunghezza = strlen(stringa);
   char scambio;
 
@@ -18,9 +19,12 @@ void OrdinamentoAlfabetico(char *stringa, char *risultato) {
 
   // Bubble sort per l'ordinamento
   int i, j;
-  for (i = 0; i < lunghezza - 1; i++) {
-    for (j = 0; j < lunghezza - i - 1; j++) {
-      if (tolower(risultato[j]) > tolower(risultato[j + 1])) {
+  for (i = 0; i < lunghezza - 1; i++)
+  {
+    for (j = 0; j < lunghezza - i - 1; j++)
+    {
+      if (tolower(risultato[j]) > tolower(risultato[j + 1]))
+      {
         // Scambio dei caratteri
         scambio = risultato[j];
         risultato[j] = risultato[j + 1];
@@ -30,14 +34,15 @@ void OrdinamentoAlfabetico(char *stringa, char *risultato) {
   }
 }
 
-int main() {
+int main()
+{
   struct sockaddr_in servizio, addr_remoto;
 
   servizio.sin_family = AF_INET;
   servizio.sin_addr.s_addr = htonl(INADDR_ANY);
   servizio.sin_port = htons(SERVERPORT);
 
-  int socketfd, soa ;
+  int socketfd, soa;
   socklen_t fromlen = sizeof(servizio);
   char str[DIM], risposta[DIM];
 
@@ -46,12 +51,14 @@ int main() {
   bind(socketfd, (struct sockaddr *)&servizio, sizeof(servizio));
   listen(socketfd, 10);
 
-  for (; ;) {
+  for (;;)
+  {
     printf("\n\nServer in ascolto...");
     fflush(stdout);
 
     soa = accept(socketfd, (struct sockaddr *)&addr_remoto, &fromlen);
-    if (read(soa, str, sizeof(str)) > 0) {
+    if (read(soa, str, sizeof(str)) > 0)
+    {
       printf("\nStringa ricevuta: %s\n", str);
       OrdinamentoAlfabetico(str, risposta);
       write(soa, risposta, sizeof(risposta));

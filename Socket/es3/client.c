@@ -35,9 +35,9 @@ int main()
     connect(socketTrasporto, (struct sockaddr *)&indirizzo_remoto, sizeof(indirizzo_remoto));
 
     printf("Inserisci una stringa: ");
-    scanf("%s",stringa);
+    scanf("%s", stringa);
     printf("Inserisci il carattere");
-    scanf("%c",&carattere);
+    scanf("%c", &carattere);
     write(socketTrasporto, stringa, strlen(stringa));
     write(socketTrasporto, &carattere, strlen(&carattere));
     read(socketTrasporto, risposta, sizeof(risposta));

@@ -45,9 +45,10 @@ int main(int argc, char *argv[])
     {
         printf("\n\nServer in ascolto....");
         fflush(stdout);
+
         soa = accept(socketFD, (struct sockaddr *)&serv, &fromlen);
         read(soa, str, sizeof(str));
-        printf("Stringa ricevuta: %s", str);
+        printf("\nStringa ricevuta: %s", str);
         if (palindroma(str))
         {
             strcpy(risposta, "La stringa è palindroma");
@@ -56,7 +57,7 @@ int main(int argc, char *argv[])
         {
             strcpy(risposta, "La stringa non è palindroma");
         }
-        write(soa,risposta,strlen(risposta));
+        write(soa, risposta, strlen(risposta));
         close(soa);
     }
     return 0;

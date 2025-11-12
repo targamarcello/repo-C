@@ -10,17 +10,21 @@
 #define SERVERPORT 1313
 #define BUFFER_SIZE 1024
 
-int ControlloStringa(char stringa[], char carattere) {
+int ControlloStringa(char stringa[], char carattere)
+{
   int ripetizioniChar = 0;
-  for (int i = 0; i < strlen(stringa); i++) {
-    if (stringa[i] == carattere) {
+  for (int i = 0; i < strlen(stringa); i++)
+  {
+    if (stringa[i] == carattere)
+    {
       ripetizioniChar++;
     }
   }
   return ripetizioniChar;
 }
 
-int main() {
+int main()
+{
   struct sockaddr_in servizio, indirizzo_remoto;
   int socketTrasporto, client;
   socklen_t fromlen = sizeof(indirizzo_remoto);
@@ -34,7 +38,8 @@ int main() {
   servizio.sin_port = htons(SERVERPORT);
 
   socketTrasporto = socket(AF_INET, SOCK_STREAM, 0);
-  if (socketTrasporto < 0) {
+  if (socketTrasporto < 0)
+  {
     perror("Errore nella creazione del socket");
     exit(1);
   }
@@ -42,7 +47,8 @@ int main() {
   bind(socketTrasporto, (struct sockaddr *)&servizio, sizeof(servizio));
 
   listen(socketTrasporto, 10);
-  for (;;) {
+  for (;;)
+  {
     printf("Server in ascolto sulla porta %d...", SERVERPORT);
     fflush(stdout);
 

@@ -15,28 +15,27 @@ ordinata alfabeticamente (eliminando i caratteri speciali).*/
 #include <unistd.h>
 #include <stdbool.h>
 
-
 #define DIM 50
 #define SERVERPORT 1313
 
-int main(int argc,char** argv)
-{   
+int main(int argc, char **argv)
+{
     struct sockaddr_in servizio;
-    
-    servizio.sin_family=AF_INET;
-    servizio.sin_addr.s_addr=htonl(INADDR_ANY); 
-    servizio.sin_port=htons(SERVERPORT);       
-    char str1[DIM],risposta[DIM];     
+
+    servizio.sin_family = AF_INET;
+    servizio.sin_addr.s_addr = htonl(INADDR_ANY);
+    servizio.sin_port = htons(SERVERPORT);
+    char str1[DIM], risposta[DIM];
     int socketfd;
-    
-    socketfd=socket(AF_INET,SOCK_STREAM,0);
-    connect(socketfd,(struct sockaddr*)&servizio,sizeof(servizio));    
+
+    socketfd = socket(AF_INET, SOCK_STREAM, 0);
+    connect(socketfd, (struct sockaddr *)&servizio, sizeof(servizio));
     printf("Inserisci la stringa\n");
-    scanf("%s",str1);
+    scanf("%s", str1);
     str1[strcspn(str1, "\n")] = '\0'; // Rimozione newline
-    write(socketfd,str1,sizeof(str1));
+    write(socketfd, str1, sizeof(str1));
     read(socketfd, risposta, DIM);
-    printf("Risposta del serve: %s\n",risposta);
+    printf("Risposta del serve: %s\n", risposta);
     close(socketfd);
     return 0;
 }
