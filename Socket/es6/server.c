@@ -15,8 +15,9 @@
 #define DIM 100
 #define SERVERPORT 1313
 
-int main() {
-  struct sockaddr_in servizio,addr_remoto;
+int main()
+{
+  struct sockaddr_in servizio, addr_remoto;
   int socketfd, soa, fromlen = sizeof(servizio);
   char str[DIM], str2[DIM];
 
@@ -28,23 +29,29 @@ int main() {
   bind(socketfd, (struct sockaddr *)&servizio, sizeof(servizio));
   listen(socketfd, 2);
 
-  for (;;) {
+  for (;;)
+  {
     printf("\n\nServer in ascolto...");
     fflush(stdout);
 
     soa = accept(socketfd, (struct sockaddr *)&addr_remoto, &fromlen);
-    read(soa, str, DIM);
-    read(soa, str2, DIM);
+    read(soa, str, sizeof(str));
+    read(soa, str2, sizeof(str2));
 
     int len1 = strlen(str);
     int len2 = strlen(str2);
 
-    if (len1 > len2) {
-      strcpy(str, "La prima stringa è più lunga");
-    } else if (len2 < len1) {
-      strcpy(str, "La seconda stringa è più lunga");
-    } else {
-      strcpy(str, "Le stringhe sono lunghe uguale");
+    if (len1 > len2)
+    {
+      write(soa, "La prima è + lunga", sizeof("La prima è + lunga"));
+    }
+    else if (len1 < len2)
+    {
+      write(soa, "La seconda è + lunga", sizeof("La seconda è + lunga"));
+    }
+    else
+    {
+      write(soa, "Le stringhe sono uguali", sizeof("Le stringhe sono uguali"));
     }
 
     write(soa, str, sizeof(str));
