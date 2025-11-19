@@ -30,11 +30,10 @@ int main(int argc, char **argv)
     printf("Inserisci la stringa\n");
     fgets(str1,sizeof(str1),stdin);
 
-
     write(socketfd, str1, sizeof(str1));
     read(socketfd,buffer,DIM);
     printf("Risultato: \n%s",buffer);
-    
+
     close(socketfd);
     return 0;
 }

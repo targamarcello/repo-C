@@ -58,7 +58,7 @@ int main()
         int parole = conta_parole(str);
         sprintf(risposta, "La frase è composta da %d parole", parole);
 
-        write(soa, risposta, strlen(risposta));
+        write(soa, risposta, sizeof(risposta));
         close(soa);
     }
     return 0;
